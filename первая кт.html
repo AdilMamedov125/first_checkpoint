@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Создание таблицы с помощью js</title>
+	<style>
+		table, th, td {
+			border: 1px solid black;
+			border-collapse: collapse;
+			padding: 5px;
+		}
+		td.orange {
+			background-color: orange;
+		}
+	</style>
+</head>
+<body>
+	<table id="myTable"></table>
+
+	<script>
+		
+		var arr = [];
+		for (var i = 0; i < 30; i++) {
+			arr.push(Math.floor(Math.random() * 100));
+		}
+
+		
+		var table = document.getElementById("myTable");
+		var row, cell, count = 0;
+		for (var i = 0; i < 5; i++) {
+			row = document.createElement("tr");
+			for (var j = 0; j < 6; j++) {
+				cell = document.createElement("td");
+				cell.textContent = arr[count];
+				if (arr[count] >= 50) {
+					cell.classList.add("orange");
+				}
+				row.appendChild(cell);
+				count++;
+			}
+			table.appendChild(row);
+		}
+	</script>
+</body>
+</html>
